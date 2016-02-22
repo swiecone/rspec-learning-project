@@ -136,9 +136,7 @@ describe ContactsController do
 				contact: attributes_for(:contact, 
 					firstname: 'Larry',
 					lastname: nil)
-				@contact.reload
-				expect.(@contact.firstname).not_to eq('Larry')
-				expect(@contact.lastname).to eq('Smith')
+				expect.(assings(@contact)).not_to eq(@contact)
 			end 
 
 			it "re-renders the :edit template" do
@@ -151,7 +149,7 @@ describe ContactsController do
 
 	describe "DELETE #destroy" do 
 		before :each do 
-			@contact = craete(:contact)
+			@contact = create(:contact)
 		end 
 
 		it "deletes the contact from the database" do 
