@@ -2,6 +2,14 @@ require 'rails_helper'
 
 describe ContactsController do 
 
+	describe "administrator access" do 
+		before :each do 
+			user = create(:admin)
+			session[:user_id] = user.id
+		end 
+
+
+
 	describe 'GET #index' do 
 		context 'with params[:letter]' do 
 			it "populates an array of contacts starting with the letter" do 
@@ -38,6 +46,7 @@ describe ContactsController do
 			get :show, id: contact
 			expect(response).to render_template :show
 		end 
+
 		it "renders the :show template" do 
 			contact = create(:contact)
 			get :show, id: contact
@@ -163,6 +172,6 @@ describe ContactsController do
 			expect(response).to redirect_to contacts_url
 		end 
 
+	  end # closes authentication
 	end 
-
 end # finishes ContactsController 
