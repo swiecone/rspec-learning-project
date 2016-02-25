@@ -2,13 +2,14 @@ require 'rails_helper'
 
 describe ContactsController do 
 
-	describe "administrator access" do 
-		before :each do 
-			user = create(:admin)
-			session[:user_id] = user.id
-		end 
+	# describe "administrator access" do 
+	# 	before :each do 
+	# 		user = create(:admin)
+	# 		session[:user_id] = user.id
+	# 	end 
 
-
+	describe "get access" do 
+		
 
 	describe 'GET #index' do 
 		context 'with params[:letter]' do 
